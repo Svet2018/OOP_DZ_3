@@ -21,15 +21,21 @@ public class Frelancer extends Employee {
     @Override
     public double calculateSalary() {
         Random random = new Random();
-        int h = random.nextInt(1, 8);
-        int days = random.nextInt(5, 20);;
-        double many = random.nextDouble(500, 2000);
+        int h = random.nextInt(1, 9);
+        int days = random.nextInt(5, 21);;
+        double many = random.nextDouble(500, 2001);
         return h * many * days;
     }
 
+//    @Override
+//    public String toString() {
+//        return String.format("%s %s; Фрилансер; Среднемесячная заработная плата (с учетом почасовой оплаты): %.2f (руб.)",
+//                surname, name, calculateSalary());
+//    }
+
     @Override
     public String toString() {
-        return String.format("%s %s; Фрилансер; Среднемесячная заработная плата (с учетом почасовой оплаты): %.2f (руб.)",
-                surname, name, calculateSalary());
+       return String.format("%s %s; Возраст %d лет; %s; Среднемесячная заработная плата (фиксированная месячная оплата): %.2f (руб.)",
+                surname, name, age, profession, calculateSalary());
     }
 }

@@ -42,20 +42,17 @@ public abstract class Employee implements Comparable<Employee> {
         String[] surnames = new String[]{"Григорьев", "Фокин", "Шестаков", "Хохлов", "Шубин", "Бирюков", "Копылов", "Горбунов", "Лыткин", "Соколов"};
         String[] profession = new String[]{"Фрилансер", "Рабочий"};
 
-        List<Employee> em = new ArrayList<>();
-        em.add(new Frelancer());
-        em.add(new Worker());
 
-        int age = random.nextInt(18, 65);
-        int salary = random.nextInt(20000, 80000);
-        int range = random.nextInt(em.size());
+        int age = random.nextInt(18, 66);
+        int salary = random.nextInt(20000, 80001);
+        int range = random.nextInt(1,3);
         if (range == 1) {
-            Employee e = new Frelancer(profession[random.nextInt(profession.length)],
+            Employee e = new Frelancer(profession[0],
                     names[random.nextInt(names.length)], surnames[random.nextInt(surnames.length)], salary, age);
             return e;
 
         } else {
-            Employee e = new Worker(profession[random.nextInt(profession.length)],
+            Employee e = new Worker(profession[1],
                     names[random.nextInt(names.length)], surnames[random.nextInt(surnames.length)], salary, age);
             return e;
         }
