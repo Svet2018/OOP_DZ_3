@@ -42,7 +42,6 @@ public abstract class Employee implements Comparable<Employee> {
         String[] surnames = new String[]{"Григорьев", "Фокин", "Шестаков", "Хохлов", "Шубин", "Бирюков", "Копылов", "Горбунов", "Лыткин", "Соколов"};
         String[] profession = new String[]{"Фрилансер", "Рабочий"};
 
-
         int age = random.nextInt(18, 66);
         int salary = random.nextInt(20000, 80001);
         int range = random.nextInt(1,3);

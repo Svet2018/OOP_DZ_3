@@ -4,8 +4,6 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Random;
 
-import static dz_3.Employee.genEmployee;
-
 public class Main {
 
     /*
@@ -19,9 +17,7 @@ public class Main {
     Продемонстрировать сортировку объектов различного типа с использованием собственного компаратора.
     */
 
-
-
-        static Random random = new Random();
+    static Random random = new Random();
 
         /**
          * TODO: Переработать метод generateEmployee в рамках домашнего задания,
@@ -46,31 +42,57 @@ public class Main {
          * @param args
          */
         public static void main(String[] args) {
+            System.out.println();
+            System.out.println("Список всех сгенерированных сотрудников:");
+            Employee[] e = employeeCreate();
+            employeePrint(e);
+            System.out.println("Список Рабочих:");
+            workerPrint(e);
+            System.out.println();
+            System.out.println("Список Фрилансеров:");
+            frelancerPrint(e);
 
+            Arrays.sort(e);
 
-
-            Employee[] employees = new Employee[10];
-            for (int i = 0; i < employees.length; i++)
-            {
-                //employees[i] = generateEmployee();
-                employees[i] = genEmployee();
-            }
-
-            for (Employee employee: employees) {
-                System.out.println(employee);
-            }
-
-            System.out.println("________");
-
-            Arrays.sort(employees);
-
-            for (Employee employee: employees) {
-                System.out.println(employee);
-            }
-
+            System.out.println();
 
 
         }
+
+        //Метод создает сотрудников
+        public static Employee[] employeeCreate(){
+            Employee[] employees = new Employee[10];
+            for (int i = 0; i < employees.length; i++)
+            {
+                employees[i] = Employee.genEmployee();
+            }
+            return employees;
+        }
+
+        //Метод печатаетсписок всех сотрудников
+        public static void employeePrint(Employee[] employees){
+            Employee[] e = employees;
+            for (Employee emp: e) System.out.println(emp);
+            System.out.println();
+        }
+
+        //Метод печатает только Рабочих
+        public static void workerPrint(Employee[] employees) {
+            for (Employee employee : employees) {
+                if (employee instanceof Worker)
+                    System.out.println(employee);}
+        }
+
+        //Метод печатает только Фрилансеров
+        public static void frelancerPrint(Employee[] employees) {
+            for (Employee employee : employees) {
+                if (employee instanceof Frelancer)
+                    System.out.println(employee);
+            }
+        }
+
+
+
 
 
 

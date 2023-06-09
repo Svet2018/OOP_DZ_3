@@ -20,11 +20,10 @@ public class Frelancer extends Employee {
 
     @Override
     public double calculateSalary() {
-        Random random = new Random();
-        int h = random.nextInt(1, 9);
-        int days = random.nextInt(5, 21);;
-        double many = random.nextDouble(500, 2001);
-        return h * many * days;
+        int h = random.nextInt(1, 5);//Работают часов в день
+        int days = 20;//Количество рабочих дней
+        double many = random.nextDouble(500, 1000);//Ставка за 1 час
+        return h * many * days;//Зарплата за 20 дней при почасовой оплате
     }
 
 //    @Override
@@ -35,7 +34,7 @@ public class Frelancer extends Employee {
 
     @Override
     public String toString() {
-       return String.format("%s %s; Возраст %d лет; %s; Среднемесячная заработная плата (фиксированная месячная оплата): %.2f (руб.)",
+       return String.format("%s %s; Возраст %d лет; %s; Заработная плата (Почасовая в месяц): %.2f (руб.)",
                 surname, name, age, profession, calculateSalary());
     }
 }
